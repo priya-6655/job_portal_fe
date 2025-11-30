@@ -5,6 +5,7 @@ import './JobPostingPage.css'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './Context/AuthContext'
 import HirePageGeading from './HirePageHeading'
+import { API_BASE_URL } from '../config/api'
 
 function JobPostingPage() {
     const [jobPosting, setJobPosting] = useState(false)
@@ -35,7 +36,7 @@ function JobPostingPage() {
         }
 
         try {
-            const res = await fetch('http://192.168.29.106:3000/createJob/jobPosting', {
+            const res = await fetch(`${API_BASE_URL}/createJob/jobPosting`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import "react-phone-input-2/lib/bootstrap.css";
 import PhoneInput from 'react-phone-input-2'
 import { AuthContext } from './Context/AuthContext';
+import { API_BASE_URL } from '../config/api';
 
 function CompanyReg() {
     const [viewPass, setViewPass] = useState(false)
@@ -43,7 +44,7 @@ function CompanyReg() {
             return
         }
         try {
-            const res = await fetch('http://192.168.29.106:3000/newCompany/companyReg', {
+            const res = await fetch(`${API_BASE_URL}/newCompany/companyReg`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(regData)

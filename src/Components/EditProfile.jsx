@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import UserHeading from './UserHeading';
 import FooterCom from './FooterCom';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config/api';
 
 function EditProfile() {
     const navigate = useNavigate()
@@ -19,7 +20,7 @@ function EditProfile() {
 
     useEffect(() => {
         if (userId) {
-            fetch(`http://192.168.29.106:3000/jobseeker/${userId}`)
+            fetch(`${API_BASE_URL}/jobseeker/${userId}`)
                 .then(res => res.json())
                 .then(data => setForm({
                     fname: data.fname || '',
@@ -44,7 +45,7 @@ function EditProfile() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch(`http://192.168.29.106:3000/jobseeker/update/${userId}`, {
+            const res = await fetch(`${API_BASE_URL}/jobseeker/update/${userId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(form)

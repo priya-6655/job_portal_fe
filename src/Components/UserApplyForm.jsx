@@ -5,6 +5,7 @@ import './UserApplyForm.css'
 import PhoneInput from 'react-phone-input-2'
 import { AuthContext } from './Context/AuthContext'
 import { useLocation } from 'react-router-dom'
+import { API_BASE_URL } from '../config/api'
 
 function UserApplyForm() {
     const { jobSeeker } = useContext(AuthContext)
@@ -58,7 +59,7 @@ function UserApplyForm() {
         }
 
         try {
-            const res = await fetch("http://192.168.29.106:3000/applyJob/apply", {
+            const res = await fetch(`${API_BASE_URL}/applyJob/apply`, {
                 method: "POST",
                 body: formData
             });

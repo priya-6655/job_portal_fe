@@ -6,6 +6,7 @@ import FooterCom from './FooterCom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './Context/AuthContext';
 import HirePageGeading from './HirePageHeading';
+import { API_BASE_URL } from '../config/api';
 
 //it give "promise", that stripe elecement will be communicate securely on frontend
 const stripePromise = loadStripe('pk_test_51SSKPDRZycbY2qUQ94eYSTxDwDyZshXNWsGRbTw1hySxpa9P77mlrdCoUTK2Vtd25K1Eqjww1mZCfHBI8QdMP8W600g1roJVQd');
@@ -25,7 +26,7 @@ function CheckoutForm({ plan, amount }) {
         console.log("Amount sent:", amount)
 
         // Call backend to create PaymentIntent
-        const res = await fetch('http://192.168.29.106:3000/api/payment', {
+        const res = await fetch(`${API_BASE_URL}/api/payment`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -53,7 +54,7 @@ function CheckoutForm({ plan, amount }) {
         }
 
         if (result.paymentIntent.status === 'succeeded') {
-            const paymentRes = await fetch('http://192.168.29.106:3000/api/paymentSuccess', {
+            const paymentRes = await fetch(`${API_BASE_URL}/api/paymentSuccess`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

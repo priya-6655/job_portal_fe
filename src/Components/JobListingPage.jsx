@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import UserHeading from './UserHeading'
 import FooterCom from './FooterCom'
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config/api'
 
 function JobListingPage() {
     const [jobs, setJobs] = useState([]);
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('http://192.168.29.106:3000/mainJob/joblist')
+        fetch(`${API_BASE_URL}/mainJob/joblist`)
             .then(res => res.json())
             .then(data => {
                 console.log("API Response:", data);

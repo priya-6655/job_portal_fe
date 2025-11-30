@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import UserHeading from './UserHeading'
 import FooterCom from './FooterCom'
 import { AuthContext } from './Context/AuthContext'
+import { API_BASE_URL } from '../config/api'
 
 function MyApllication() {
     const { jobSeeker } = useContext(AuthContext)
@@ -9,7 +10,7 @@ function MyApllication() {
 
     useEffect(() => {
         if (!jobSeeker?.id) return
-        fetch(`http://192.168.29.106:3000/applyJob/userApplications/${jobSeeker.id}`)
+        fetch(`${API_BASE_URL}/applyJob/userApplications/${jobSeeker.id}`)
             .then(res => res.json())
             .then(data => {
                 const list = data.applications || [];
@@ -29,7 +30,7 @@ function MyApllication() {
                                 <h3>{item?.companyName ?? "Company name not available"}</h3>
                                 <p>Applied Position: {item?.jobTitle ?? "Not specified"}</p>
                                 <p style={{ textTransform: 'capitalize' }}>City: {item?.jobCity || 'N/A'}</p>
-                                <a href={`http://192.168.29.106:3000/uploads/${item.resume}`} target="_blank">
+                                <a href={`${API_BASE_URL}/uploads/${item.resume}`} target="_blank">
                                     View Resume
                                 </a>
                             </div>

@@ -5,6 +5,7 @@ import PhoneInput from 'react-phone-input-2'
 import { Link } from 'react-router-dom'
 import { AuthContext } from './Context/AuthContext'
 import HirePageGeading from './HirePageHeading'
+import { API_BASE_URL } from '../config/api'
 
 function MainJobPostPage() {
     const { company } = useContext(AuthContext)
@@ -33,7 +34,7 @@ function MainJobPostPage() {
     })
 
     useEffect(() => {
-        fetch('http://192.168.29.106:3000/mainJob/job-cities')
+        fetch(`${API_BASE_URL}/mainJob/job-cities`)
             .then(res => res.json())
             .then(data => setCities(data.cityList))
             .catch(err => console.log(err))
@@ -65,7 +66,7 @@ function MainJobPostPage() {
             return
         }
 
-        const res = await fetch(`http://192.168.29.106:3000/mainJob/search-skill?q=${inputValue}`)
+        const res = await fetch(`${API_BASE_URL}/mainJob/search-skill?q=${inputValue}`)
         const data = await res.json()
         setSkillList(data)
         setShowList(true)
@@ -76,7 +77,7 @@ function MainJobPostPage() {
         e.preventDefault()
 
         try {
-            const res = await fetch('http://192.168.29.106:3000/mainJob/mainjobcreate', {
+            const res = await fetch(`${API_BASE_URL}/mainJob/mainjobcreate`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

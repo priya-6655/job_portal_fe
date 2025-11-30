@@ -4,6 +4,7 @@ import FooterCom from './FooterCom'
 import './JobSeeker.css'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './Context/AuthContext'
+import { API_BASE_URL } from '../config/api'
 
 
 function JobSeeker() {
@@ -44,7 +45,7 @@ function JobSeeker() {
     const userRegister = async (e) => {
         e.preventDefault()
 
-        const res = await fetch('http://192.168.29.106:3000/jobseeker/newUser', {
+        const res = await fetch(`${API_BASE_URL}/jobseeker/newUser`, {
             method: 'POST',
             headers: { 'content-Type': 'application/json' },
             body: JSON.stringify(usrRegData)
@@ -92,7 +93,7 @@ function JobSeeker() {
     const handleLogin = async (e) => {
         e.preventDefault()
 
-        const res = await fetch('http://192.168.29.106:3000/jobseeker/usrLogin', {
+        const res = await fetch(`${API_BASE_URL}/jobseeker/usrLogin`, {
             method: 'POST',
             headers: { 'content-Type': 'application/json' },
             body: JSON.stringify(loginData)

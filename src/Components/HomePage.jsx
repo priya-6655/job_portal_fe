@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import HeaderCom from './HeaderCom'
 import FooterCom from './FooterCom'
 import { AuthContext } from './Context/AuthContext'
+import { API_BASE_URL } from '../config/api'
 
 function HomePage({ showPlansOnly }) {
     const [showLogin, setShowLogin] = useState(false)
@@ -51,7 +52,7 @@ function HomePage({ showPlansOnly }) {
 
     const loginCompany = async () => {
         try {
-            const res = await fetch('http://192.168.29.106:3000/newCompany/companyLogin', {
+            const res = await fetch(`${API_BASE_URL}/newCompany/companyLogin`, {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(logData)
@@ -59,7 +60,7 @@ function HomePage({ showPlansOnly }) {
 
             const out = await res.json()
             if (out.data) {
-                const updatedRes = await fetch(`http://192.168.29.106:3000/newCompany/getCompany/${out.data.email}`)
+                const updatedRes = await fetch(`${API_BASE_URL}/newCompany/getCompany/${out.data.email}`)
                 const updatedData = await updatedRes.json()
                 setCompany(updatedData.data);
                 setShowLogin(false)
