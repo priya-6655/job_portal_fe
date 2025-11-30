@@ -1,0 +1,150 @@
+.jobImage {
+    background: url('https://png.pngtree.com/background/20210710/original/pngtree-careers-business-banner-picture-image_1062612.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 60vh;
+    position: relative;
+}
+
+.job-create {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    transform: translate(-15%, -50%);
+}
+
+.job-form-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createJob {
+    min-height: 100vh;
+    padding-top: 50px;
+    background: url('https://t3.ftcdn.net/jpg/04/14/96/90/360_F_414969008_W3lQuI8joaMQ8Y6fZgSwIDCjqdWBs0tF.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+}
+
+.right-box {
+    background: linear-gradient(180deg, #4455f2, #3238cc);
+    min-height: 100%;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.right-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.right-box ul li::before {
+    content: "• ";
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.radio-item {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.JobTheme {
+    background: url('https://tse3.mm.bing.net/th/id/OIP.XhSZRb4WzASfhFZrpv04cAHaEP?pid=Api&P=0&h=180');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 200vh;
+}
+
+.form_box {
+    width: 60vw;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+.terms_Box {
+    width: 60vw;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    padding: 20px 30px;
+}
+
+@media (max-width: 768px) {
+    .form_box {
+        width: 90vw !important;
+        padding: 15px !important;
+    }
+
+    .terms_Box {
+        width: 90vw !important;
+        padding: 15px !important;
+        border-radius: 20px !important;
+    }
+
+    label {
+        margin-bottom: 5px;
+    }
+
+    .JobTheme {
+        min-height: auto;
+        padding-bottom: 50px;
+    }
+}
+
+#result_Box {
+    max-height: 150px;
+    overflow-y: auto;
+    cursor: pointer;
+}
+
+.blur-background {
+    filter: blur(5px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.terms-popup {
+    background: white;
+    width: 60%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    animation: popupAnim 0.25s ease-in-out;
+    margin-top: 900px;
+}
+
+@keyframes popupAnim {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
