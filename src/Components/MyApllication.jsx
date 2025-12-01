@@ -30,7 +30,7 @@ function MyApllication() {
                                 <h3>{item?.companyName ?? "Company name not available"}</h3>
                                 <p>Applied Position: {item?.jobTitle ?? "Not specified"}</p>
                                 <p style={{ textTransform: 'capitalize' }}>City: {item?.jobCity || 'N/A'}</p>
-                                <a href={`${API_BASE_URL}/uploads/${item.resume}`} target="_blank">
+                                <a href={item.resume} target="_blank">
                                     View Resume
                                 </a>
                             </div>

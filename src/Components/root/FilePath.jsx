@@ -10,6 +10,7 @@ import JobListingPage from '../JobListingPage'
 import UserApplyForm from '../UserApplyForm'
 import EditProfile from '../EditProfile'
 import MyApllication from '../MyApllication'
+import ViewUserApplication from '../ViewUserApplication'
 
 function FilePath() {
     return (
@@ -26,6 +27,7 @@ function FilePath() {
                 <Route path='/applyform' element={<UserApplyForm />} />
                 <Route path='/editprofile' element={<EditProfile />} />
                 <Route path='/myapplication' element={<MyApllication />} />
+                <Route path='/userApplyDetails' element={<ViewUserApplication />} />
             </Routes>
         </div>
     )
